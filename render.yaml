@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: customer-support-feedback
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORTAL_OPEN
+        value: "true"
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: feedback-data
+      mountPath: /var/data
+      sizeGB: 1
